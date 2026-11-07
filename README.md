@@ -4,7 +4,7 @@
 
 ÉLORA PARFUMS is a modern and elegant perfume e-commerce website designed to provide a simple and smooth online shopping experience.
 
-Customers can explore fragrances, add products to their shopping cart, manage quantities, and place orders directly through WhatsApp.
+Customers can explore fragrances, add products to their shopping cart, manage quantities, and place orders directly through WhatsApp. The application uses Supabase to store products and orders securely.
 
 ## ✨ Features
 
@@ -14,7 +14,10 @@ Customers can explore fragrances, add products to their shopping cart, manage qu
 - Remove products from the cart.
 - Calculate the total price automatically.
 - Save cart items using Local Storage.
-- Place orders through WhatsApp.
+- Retrieve products dynamically from Supabase.
+- Store customer orders in a database.
+- Calculate order totals securely on the server.
+- Generate WhatsApp order messages.
 - Responsive design for mobile and desktop.
 
 ## 🛠️ Technologies
@@ -26,7 +29,32 @@ Customers can explore fragrances, add products to their shopping cart, manage qu
 - React Router
 - Lucide React
 - Local Storage
+- Supabase Database
+- Supabase Edge Functions
 - WhatsApp
+
+## 🗄️ Database Architecture
+
+The application uses Supabase PostgreSQL with three main tables:
+
+| Table | Description |
+|---|---|
+| `products` | Stores perfume information, prices and availability. |
+| `orders` | Stores customer information, order totals and statuses. |
+| `order_items` | Stores the products and quantities associated with each order. |
+
+## 🔐 Security
+
+Security is handled using Supabase Row Level Security (RLS) and Edge Functions.
+
+- RLS is enabled on all database tables.
+- Public users can only read active products.
+- Direct public insertion into orders and order items is not allowed.
+- Orders are created through a Supabase Edge Function.
+- Product prices are retrieved directly from the database.
+- Order totals are calculated server-side instead of trusting frontend prices.
+- Supabase secret keys are kept server-side and are never exposed in frontend code.
+- Customer order data is protected from direct public database access.
 
 ## 🚀 Getting Started
 
@@ -48,13 +76,22 @@ cd ecommerce-store
 npm install
 ```
 
-### 4. Start the development server
+### 4. Configure environment variables
+
+Create a `.env` file in the project root:
+
+```env
+VITE_SUPABASE_URL=YOUR_SUPABASE_PROJECT_URL
+VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
+```
+
+### 5. Start the development server
 
 ```bash
 npm run dev
 ```
 
-### 5. Build for production
+### 6. Build for production
 
 ```bash
 npm run build
@@ -62,35 +99,13 @@ npm run build
 
 ## ⚙️ Store Configuration
 
-You can customize your store information in:
+Store information can be customized in:
 
-`src/data/products.ts`
+`src/data/store.ts`
 
 - Store name
 - Logo
 - WhatsApp number
 - Currency
-- Products and prices
 
-## 📱 Order Process
-
-1. Customer selects perfumes.
-2. Products are added to the cart.
-3. Customer enters their contact information and delivery address.
-4. The website generates an order message.
-5. WhatsApp opens with the order details ready to send.
-
-## 💳 Payment
-
-Orders are handled through WhatsApp. Payment arrangements are confirmed directly between the customer and the store.
-
-## 📌 Project Information
-
-- Project Type: Frontend E-commerce
-- Backend: Not required
-- Database: Not required
-- Order Management: WhatsApp
-
-## 📄 License
-
-This project is available for educational and personal use.
+Products are managed through the
