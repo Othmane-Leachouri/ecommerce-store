@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import { ShoppingBag, ArrowRight } from 'lucide-react'
-import { store } from '../data/products'
+import { store } from '../data/store'
 
 export default function Navbar({ cartCount }: { cartCount: number }) {
   return (

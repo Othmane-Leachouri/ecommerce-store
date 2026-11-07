@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { store } from '../data/products'
+import { store } from '../data/store'
 import type { CartItem } from '../data/products'
 
 type Props = {
