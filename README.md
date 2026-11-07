@@ -1,75 +1,96 @@
-# React + TypeScript + Vite
+# ÉLORA PARFUMS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Luxury Fragrances. Timeless Elegance.**
 
-Currently, two official plugins are available:
+ÉLORA PARFUMS is a modern and elegant perfume e-commerce website designed to provide a simple and smooth online shopping experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Customers can explore fragrances, add products to their shopping cart, manage quantities, and place orders directly through WhatsApp.
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Browse available perfumes.
+- Add products to the shopping cart.
+- Update product quantities.
+- Remove products from the cart.
+- Calculate the total price automatically.
+- Save cart items using Local Storage.
+- Place orders through WhatsApp.
+- Responsive design for mobile and desktop.
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- CSS
+- React Router
+- Lucide React
+- Local Storage
+- WhatsApp
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. Clone the repository
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone YOUR_REPOSITORY_URL
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Navigate to the project
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd ecommerce-store
 ```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+### 5. Build for production
+
+```bash
+npm run build
+```
+
+## ⚙️ Store Configuration
+
+You can customize your store information in:
+
+`src/data/products.ts`
+
+- Store name
+- Logo
+- WhatsApp number
+- Currency
+- Products and prices
+
+## 📱 Order Process
+
+1. Customer selects perfumes.
+2. Products are added to the cart.
+3. Customer enters their contact information and delivery address.
+4. The website generates an order message.
+5. WhatsApp opens with the order details ready to send.
+
+## 💳 Payment
+
+Orders are handled through WhatsApp. Payment arrangements are confirmed directly between the customer and the store.
+
+## 📌 Project Information
+
+- Project Type: Frontend E-commerce
+- Backend: Not required
+- Database: Not required
+- Order Management: WhatsApp
+
+## 📄 License
+
+This project is available for educational and personal use.
