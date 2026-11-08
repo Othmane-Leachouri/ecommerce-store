@@ -1,5 +1,4 @@
 
-import { Container } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
 import type { Product } from '../data/products'
 
