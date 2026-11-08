@@ -1,4 +1,5 @@
 
+import { Container } from 'lucide-react'
 import ProductCard from '../components/ProductCard'
 import type { Product } from '../data/products'
 
@@ -9,9 +10,10 @@ type Props = {
 
 export default function Home({ products, onAdd }: Props) {
   return (
-    <main className="container">
-      <h1>Our Products</h1>
-
+    <main>
+      
+      <div className="container">
+<div className='TitleHome'></div>
       <div className="grid">
         {(products ?? []).map((product) => (
           <ProductCard
@@ -20,6 +22,7 @@ export default function Home({ products, onAdd }: Props) {
             onAdd={onAdd}
           />
         ))}
+      </div>
       </div>
     </main>
   )

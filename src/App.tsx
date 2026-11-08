@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Cart from './pages/Cart'
 import type { Product, CartItem } from './data/products'
 import { getProducts } from './services/productService'
+import Footer from './components/Footer'
 
 export default function App() {
   const [products, setProducts] = useState<Product[]>([])
@@ -96,6 +97,7 @@ export default function App() {
           }
         />
       </Routes>
+       <Footer />
     </>
   )
 }
