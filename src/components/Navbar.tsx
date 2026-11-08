@@ -19,7 +19,7 @@ export default function Navbar({ cartCount }: { cartCount: number }) {
 
         <Link to="/cart" className="cart-button" aria-label={`Shopping bag, ${cartCount} items`}>
           <ShoppingBag size={21} strokeWidth={1.6} />
-          <span className="cart-label">Shopping Bag</span>
+          
           <span className="cart-count">{cartCount}</span>
           <ArrowRight size={15} className="cart-arrow" />
         </Link>
