@@ -6,7 +6,7 @@
 
 Customers can explore fragrances, add products to their shopping cart, manage quantities, and place orders directly through WhatsApp. The application uses Supabase to store products and orders securely.
 
-## ✨ Features
+##  Features
 
 - Browse available perfumes.
 - Add products to the shopping cart.
@@ -20,7 +20,11 @@ Customers can explore fragrances, add products to their shopping cart, manage qu
 - Generate WhatsApp order messages.
 - Responsive design for mobile and desktop.
 
-## 🛠️ Technologies
+##  Future Improvements
+
+- [ ] Integrate an **AI Shopping Assistant** to provide smart product recommendations and improve the shopping experience.
+
+##  Technologies
 
 - React
 - TypeScript
@@ -33,7 +37,7 @@ Customers can explore fragrances, add products to their shopping cart, manage qu
 - Supabase Edge Functions
 - WhatsApp
 
-## 🗄️ Database Architecture
+##  Database Architecture
 
 The application uses Supabase PostgreSQL with three main tables:
 
@@ -43,7 +47,7 @@ The application uses Supabase PostgreSQL with three main tables:
 | `orders` | Stores customer information, order totals and statuses. |
 | `order_items` | Stores the products and quantities associated with each order. |
 
-## 🔐 Security
+##  Security
 
 Security is handled using Supabase Row Level Security (RLS) and Edge Functions.
 
@@ -56,7 +60,7 @@ Security is handled using Supabase Row Level Security (RLS) and Edge Functions.
 - Supabase secret keys are kept server-side and are never exposed in frontend code.
 - Customer order data is protected from direct public database access.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### 1. Clone the repository
 
