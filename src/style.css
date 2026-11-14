@@ -20,11 +20,19 @@ html {
   scroll-behavior: smooth;
 }
 
+.dark {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #333333;
+  --card-bg: #1e1e1e;
+}
+
 body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background: var(--light);
-  color: var(--dark);
-  line-height: 1.6;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {

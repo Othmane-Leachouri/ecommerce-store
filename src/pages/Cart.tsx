@@ -180,7 +180,7 @@ export default function Cart({ cart, onChangeQuantity, onRemove }: Props) {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
-
+        
         {error && <p className="error">{error}</p>}
 
         <button

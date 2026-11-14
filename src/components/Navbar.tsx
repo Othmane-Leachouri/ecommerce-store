@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
 import { ShoppingBag, ArrowRight } from 'lucide-react'
 import { store } from '../data/store'
+import DarkMode from './DarkMode'
 
 export default function Navbar({ cartCount }: { cartCount: number }) {
   return (
@@ -8,6 +9,7 @@ export default function Navbar({ cartCount }: { cartCount: number }) {
       <div className="navbar-inner">
         <Link to="/" className="brand">
           <img src={store.logo} alt={store.name} />
+          
           <span>{store.name}</span>
         </Link>
 
@@ -16,6 +18,7 @@ export default function Navbar({ cartCount }: { cartCount: number }) {
             Home
           </NavLink>
         </nav>
+        
 
         <Link to="/cart" className="cart-button" aria-label={`Shopping bag, ${cartCount} items`}>
           <ShoppingBag size={21} strokeWidth={1.6} />
@@ -23,6 +26,7 @@ export default function Navbar({ cartCount }: { cartCount: number }) {
           <span className="cart-count">{cartCount}</span>
           <ArrowRight size={15} className="cart-arrow" />
         </Link>
+        <DarkMode />
       </div>
     </header>
   )
