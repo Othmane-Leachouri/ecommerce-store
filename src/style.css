@@ -8,6 +8,20 @@
   --border: #eee7df;
   --whatsapp: #25d366;
   --danger: #dc5555;
+
+  --bg-primary: #faf8f5;
+  --bg-secondary: #f0ece6;
+  --text-primary: #29231e;
+  --text-secondary: #77716b;
+  --border-color: #eee7df;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #e5ded5;
+  --placeholder-color: var(--placeholder-color);
+  --navbar-bg: rgba(255, 255, 255, 0.96);
+  --button-bg: #29231e;
+  --button-text: #ffffff;
+  --button-hover-bg: #a47a50;
 }
 
 * {
@@ -27,12 +41,29 @@ html {
   --text-secondary: #94a3b8;
   --border-color: #333333;
   --card-bg: #1e1e1e;
+  --input-bg: #171717;
+  --input-border: #404040;
+  --placeholder-color: #94a3b8;
+  --navbar-bg: rgba(18, 18, 18, 0.96);
+  --button-bg: #a47a50;
+  --button-text: #ffffff;
+  --button-hover-bg: #bd9162;
 }
 
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+.navbar,
+.card,
+.cart-item,
+.form,
+.form input,
+.quantity button,
+.footer {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 #root {
@@ -67,9 +98,9 @@ img {
   top: 0;
   z-index: 100;
   width: 100%;
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--navbar-bg);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .navbar-inner {
@@ -86,7 +117,7 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--dark);
+  color: var(--text-primary);
 }
 
 .brand img {
@@ -111,7 +142,7 @@ img {
 
 .nav-link {
   position: relative;
-  color: var(--gray);
+  color: var(--text-secondary);
   font-size: 13px;
   letter-spacing: 1px;
   transition: color 0.25s;
@@ -137,16 +168,16 @@ img {
   align-items: center;
   gap: 11px;
   padding: 12px 16px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: 3px;
-  color: var(--dark);
+  color: var(--text-primary);
   transition: all 0.25s;
 }
 
 .cart-button:hover {
-  background: var(--dark);
-  color: white;
-  border-color: var(--dark);
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-color: var(--button-bg);
 }
 
 .cart-label {
@@ -215,10 +246,10 @@ main {
   justify-content: center;
   width: 100%;
   padding: 13px 18px;
-  border: 1px solid var(--dark);
+  border: 1px solid var(--button-bg);
   border-radius: 3px;
-  background: var(--dark);
-  color: white;
+  background: var(--button-bg);
+  color: var(--button-text);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -261,8 +292,8 @@ main {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -275,7 +306,7 @@ main {
   width: 100%;
   height: 280px;
   object-fit: cover;
-  background: #f0ece6;
+  background: var(--bg-secondary);
   transition: transform 0.5s ease;
 }
 
@@ -299,7 +330,7 @@ main {
 
 .description {
   flex: 1;
-  color: var(--gray);
+  color: var(--text-secondary);
   font-size: 13px;
   line-height: 1.7;
 }
@@ -324,15 +355,15 @@ main {
   align-items: center;
   gap: 20px;
   padding: 18px;
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
 }
 
 .cart-item img {
   width: 95px;
   height: 95px;
   object-fit: cover;
-  background: #f0ece6;
+  background: var(--bg-secondary);
 }
 
 .cart-info {
@@ -347,7 +378,7 @@ main {
 }
 
 .cart-info p {
-  color: var(--gray);
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
@@ -360,15 +391,15 @@ main {
 .quantity button {
   width: 32px;
   height: 32px;
-  border: 1px solid var(--border);
-  background: white;
-  color: var(--dark);
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
   transition: all 0.2s;
 }
 
 .quantity button:hover {
-  background: var(--dark);
-  color: white;
+  background: var(--button-bg);
+  color: var(--button-text);
 }
 
 .remove {
@@ -386,7 +417,7 @@ main {
 .total {
   margin: 28px 0;
   padding: 20px 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-color);
   font-family: Georgia, serif;
   font-size: 25px;
   font-weight: 600;
@@ -400,8 +431,8 @@ main {
   flex-direction: column;
   gap: 15px;
   padding: 28px;
-  background: white;
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
 }
 
 .form h2 {
@@ -412,10 +443,10 @@ main {
 .form input {
   width: 100%;
   padding: 14px 15px;
-  border: 1px solid #e5ded5;
+  border: 1px solid var(--input-border);
   border-radius: 2px;
-  background: #fff;
-  color: var(--dark);
+  background: var(--input-bg);
+  color: var(--text-primary);
   font-size: 14px;
   transition: border-color 0.2s;
 }
@@ -426,7 +457,7 @@ main {
 }
 
 .form input::placeholder {
-  color: #aaa29a;
+  color: var(--placeholder-color);
 }
 
 /* EMPTY CART */
@@ -443,7 +474,7 @@ main {
 
 .empty-cart p {
   margin-bottom: 20px;
-  color: var(--gray);
+  color: var(--text-secondary);
 }
 
 /* FOOTER */
@@ -454,11 +485,11 @@ main {
   align-items: center;
   gap: 6px;
   padding: 24px 20px;
-  background: white;
-  color: var(--gray);
+  background: var(--card-bg);
+  color: var(--text-secondary);
   font-size: 14px;
   text-align: center;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-color);
 }
 
 .footer a {
@@ -640,8 +671,8 @@ main {
   align-items: center;
   gap: 16px;
   padding: 16px;
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   min-width: 0;
 }
 
@@ -666,7 +697,7 @@ main {
 }
 
 .cart-info p {
-  color: var(--gray);
+  color: var(--text-secondary);
   font-size: 13px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
