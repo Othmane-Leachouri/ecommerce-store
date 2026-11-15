@@ -1,0 +1,35 @@
+/* Admin layout - uses the variables from style.css (light and dark mode) */
+
+.ad-shell { flex: 1; display: grid; grid-template-columns: 240px 1fr; align-items: start; }
+
+.ad-sidebar {
+  position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: 28px;
+  padding: 28px 18px; background: var(--card-bg); border-right: 1px solid var(--border-color);
+}
+.ad-brand { font-family: Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: 1.5px; padding: 0 10px; }
+.ad-nav { display: flex; flex-direction: column; gap: 4px; }
+
+.ad-link {
+  display: flex; align-items: center; gap: 12px; padding: 12px 10px; border-radius: 3px;
+  color: var(--text-secondary); font-size: 13px; letter-spacing: 0.5px; transition: all 0.25s;
+}
+.ad-link:hover { background: var(--bg-secondary); color: var(--text-primary); }
+.ad-link.active { background: var(--bg-secondary); color: var(--main-color); box-shadow: inset 2px 0 0 var(--main-color); }
+.ad-store { margin-top: auto; border: 1px solid var(--border-color); }
+
+.ad-content { min-width: 0; }
+
+@media (max-width: 768px) {
+  .ad-shell { grid-template-columns: 1fr; }
+  .ad-sidebar {
+    position: static; height: auto; flex-direction: row; align-items: center; flex-wrap: wrap;
+    gap: 10px; padding: 14px 16px; border-right: none; border-bottom: 1px solid var(--border-color);
+  }
+  .ad-brand { width: 100%; font-size: 17px; padding: 0; }
+  .ad-nav { flex-direction: row; flex: 1; }
+  .ad-store { margin-top: 0; }
+}
+@media (max-width: 480px) {
+  .ad-link { padding: 10px 8px; }
+  .ad-link span { font-size: 12px; }
+}

@@ -1,9 +1,11 @@
-
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
+import AdminLayout from './admin/layout/AdminLayout'
+import Dashboard from './admin/pages/Dashboard'
+import Customers from './admin/pages/Customers'
 import type { Product, CartItem } from './data/products'
 import { getProducts } from './services/productService'
 import Footer from './components/Footer'
@@ -17,6 +19,10 @@ export default function App() {
     const saved = localStorage.getItem('cart')
     return saved ? JSON.parse(saved) : []
   })
+
+  // Admin pages do not show the store Navbar and Footer
+  const { pathname } = useLocation()
+  const isAdmin = pathname.startsWith('/admin')
 
   // Get products from Supabase
   useEffect(() => {
@@ -70,7 +76,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar cartCount={cartCount} />
+      {!isAdmin && <Navbar cartCount={cartCount} />}
 
       <Routes>
         <Route
@@ -96,8 +102,13 @@ export default function App() {
             />
           }
         />
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="customers" element={<Customers />} />
+        </Route>
       </Routes>
-       <Footer />
+      {!isAdmin && <Footer />}
     </>
   )
 }

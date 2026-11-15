@@ -1,0 +1,34 @@
+/* Dashboard page - uses the variables from style.css */
+
+.db-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; margin-bottom: 28px; }
+.db-panel { padding: 22px; background: var(--card-bg); border: 1px solid var(--border-color); }
+.db-panel h2 { font-family: Georgia, serif; font-size: 20px; font-weight: 500; margin-bottom: 18px; }
+.db-recent { padding: 22px 0 0; }
+.db-recent .db-panel-head, .db-recent .cm-table-wrap { border-left: none; border-right: none; }
+.db-panel-head { display: flex; align-items: baseline; justify-content: space-between; padding: 0 22px; }
+.db-link { color: var(--main-color); font-size: 13px; letter-spacing: 0.5px; }
+.db-link:hover { text-decoration: underline; }
+
+/* Revenue bars (pure CSS) */
+.db-bars { display: flex; align-items: flex-end; gap: 12px; height: 210px; }
+.db-bar-col { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; min-width: 0; }
+.db-bar { width: 100%; max-width: 44px; min-height: 2px; background: var(--main-color); transition: height 0.4s ease; }
+.db-bar-value { color: var(--text-secondary); font-size: 11px; white-space: nowrap; }
+.db-bar-label { color: var(--text-secondary); font-size: 12px; }
+
+/* Best sellers */
+.db-top { list-style: none; display: flex; flex-direction: column; }
+.db-top li {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 14px;
+}
+.db-top li:last-child { border-bottom: none; }
+.db-top .cm-muted { font-size: 12px; }
+
+@media (max-width: 900px) { .db-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .db-bars { gap: 6px; }
+  .db-bar-value { display: none; }
+  .db-top li { grid-template-columns: 1fr auto; }
+  .db-top .cm-muted { display: none; }
+}
