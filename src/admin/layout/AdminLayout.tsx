@@ -1,11 +1,12 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { LayoutDashboard, LogOut, Store, Users } from 'lucide-react'
+import { LayoutDashboard, LogOut, Package, Store, Users } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import './AdminLayout.css'
 
 const links = [
   { to: '/admin', label: 'Dashboard', icon: <LayoutDashboard size={18} />, end: true },
   { to: '/admin/customers', label: 'Customers', icon: <Users size={18} />, end: false },
+  { to: '/admin/products', label: 'Products', icon: <Package size={18} />, end: false },
 ]
 
 export default function AdminLayout() {

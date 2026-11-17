@@ -8,6 +8,7 @@ import RequireAdmin from './admin/layout/RequireAdmin'
 import AdminLogin from './admin/pages/AdminLogin'
 import Dashboard from './admin/pages/Dashboard'
 import Customers from './admin/pages/Customers'
+import Products from './admin/pages/Products'
 import type { Product, CartItem } from './data/products'
 import { getProducts } from './services/productService'
 import Footer from './components/Footer'
@@ -117,6 +118,7 @@ export default function App() {
         >
           <Route index element={<Dashboard />} />
           <Route path="customers" element={<Customers />} />
+          <Route path="products" element={<Products />} />
         </Route>
       </Routes>
       {!isAdmin && <Footer />}
