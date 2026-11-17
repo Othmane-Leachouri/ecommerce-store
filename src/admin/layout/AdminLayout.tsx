@@ -1,5 +1,6 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { LayoutDashboard, LogOut, Package, Store, Users } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { LayoutDashboard, LogOut, Menu, Package, Store, Users, X } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import './AdminLayout.css'
 
@@ -11,6 +12,27 @@ const links = [
 
 export default function AdminLayout() {
   const navigate = useNavigate()
+  const { pathname } = useLocation()
+  const [open, setOpen] = useState(false) // mobile menu
+
+  // Close the mobile menu after going to another page
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  // While the mobile menu is open: Escape closes it and the page behind does not scroll
+  useEffect(() => {
+    if (!open) return
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [open])
 
   async function handleLogout() {
     await supabase.auth.signOut()
@@ -19,8 +41,30 @@ export default function AdminLayout() {
 
   return (
     <div className="ad-shell">
-      <aside className="ad-sidebar">
+      {/* Top bar: phones and small tablets only */}
+      <header className="ad-topbar">
+        <button
+          type="button"
+          className="ad-icon-btn"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={open}
+          aria-controls="ad-sidebar"
+        >
+          <Menu size={20} />
+        </button>
         <p className="ad-brand">ÉLORA PARFUMS</p>
+      </header>
+
+      {open && <div className="ad-backdrop" onClick={() => setOpen(false)} />}
+
+      <aside id="ad-sidebar" className={`ad-sidebar${open ? ' open' : ''}`}>
+        <div className="ad-side-head">
+          <p className="ad-brand">ÉLORA PARFUMS</p>
+          <button type="button" className="ad-icon-btn ad-close" onClick={() => setOpen(false)} aria-label="Close menu">
+            <X size={18} />
+          </button>
+        </div>
 
         <nav className="ad-nav" aria-label="Admin">
           {links.map((l) => (
