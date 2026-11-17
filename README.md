@@ -19,6 +19,19 @@ Customers can explore fragrances, add products to their shopping cart, manage qu
 - Calculate order totals securely on the server.
 - Generate WhatsApp order messages.
 - Responsive design for mobile and desktop.
+- Admin Dashboard
+
+## Admin Dashboard
+The application includes an Admin Dashboard to manage and monitor the store.
+View sales statistics and key business metrics.
+Monitor and manage customer orders.
+Track order statuses.
+View customer information and purchase history.
+Manage store products and their availability.
+
+
+<img width="948" height="439" alt="image" src="https://github.com/user-attachments/assets/75c062f7-d9b1-46c2-b735-a96a7d0580c9" />
+
 
 ##  Future Improvements
 
