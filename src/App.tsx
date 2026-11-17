@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
 import AdminLayout from './admin/layout/AdminLayout'
+import RequireAdmin from './admin/layout/RequireAdmin'
+import AdminLogin from './admin/pages/AdminLogin'
 import Dashboard from './admin/pages/Dashboard'
 import Customers from './admin/pages/Customers'
 import type { Product, CartItem } from './data/products'
@@ -103,7 +105,16 @@ export default function App() {
           }
         />
 
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        <Route
+          path="/admin"
+          element={
+            <RequireAdmin>
+              <AdminLayout />
+            </RequireAdmin>
+          }
+        >
           <Route index element={<Dashboard />} />
           <Route path="customers" element={<Customers />} />
         </Route>

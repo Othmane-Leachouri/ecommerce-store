@@ -15,7 +15,9 @@
 }
 .ad-link:hover { background: var(--bg-secondary); color: var(--text-primary); }
 .ad-link.active { background: var(--bg-secondary); color: var(--main-color); box-shadow: inset 2px 0 0 var(--main-color); }
-.ad-store { margin-top: auto; border: 1px solid var(--border-color); }
+.ad-bottom { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+.ad-store { border: 1px solid var(--border-color); }
+button.ad-link { width: 100%; background: transparent; border: none; font: inherit; font-size: 13px; text-align: left; cursor: pointer; }
 
 .ad-content { min-width: 0; }
 
@@ -27,7 +29,8 @@
   }
   .ad-brand { width: 100%; font-size: 17px; padding: 0; }
   .ad-nav { flex-direction: row; flex: 1; }
-  .ad-store { margin-top: 0; }
+  .ad-bottom { margin-top: 0; flex-direction: row; }
+  button.ad-link { width: auto; }
 }
 @media (max-width: 480px) {
   .ad-link { padding: 10px 8px; }

@@ -1,5 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom'
-import { LayoutDashboard, Store, Users } from 'lucide-react'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { LayoutDashboard, LogOut, Store, Users } from 'lucide-react'
+import { supabase } from '../../lib/supabase'
 import './AdminLayout.css'
 
 const links = [
@@ -8,6 +9,13 @@ const links = [
 ]
 
 export default function AdminLayout() {
+  const navigate = useNavigate()
+
+  async function handleLogout() {
+    await supabase.auth.signOut()
+    navigate('/admin/login', { replace: true })
+  }
+
   return (
     <div className="ad-shell">
       <aside className="ad-sidebar">
@@ -27,10 +35,16 @@ export default function AdminLayout() {
           ))}
         </nav>
 
-        <NavLink to="/" className="ad-link ad-store">
-          <Store size={18} />
-          <span>Back to store</span>
-        </NavLink>
+        <div className="ad-bottom">
+          <NavLink to="/" className="ad-link ad-store">
+            <Store size={18} />
+            <span>Back to store</span>
+          </NavLink>
+          <button type="button" className="ad-link ad-logout" onClick={handleLogout}>
+            <LogOut size={18} />
+            <span>Log out</span>
+          </button>
+        </div>
       </aside>
 
       <div className="ad-content">

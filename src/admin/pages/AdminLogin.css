@@ -1,0 +1,72 @@
+/* Admin login - dark by default, same style as the admin dashboard.
+   Every class starts with "al-" so it never clashes with style.css. */
+
+.al-page {
+  --al-gold: #a47a50;
+  --al-gold-hover: #bd9162;
+  --al-ink: #f8fafc;
+  --al-muted: #94a3b8;
+  --al-bg: #121212;
+  --al-card: #1e1e1e;
+  --al-line: #333333;
+  --al-input-bg: #171717;
+  --al-input-line: #404040;
+  --al-danger: #e56b6b;
+
+  min-height: 100vh; display: grid; place-items: center; padding: 24px;
+  background: radial-gradient(ellipse at 50% 30%, rgba(164, 122, 80, 0.18), transparent 60%), var(--al-bg);
+  color: var(--al-ink);
+}
+.al-page *, .al-page *::before, .al-page *::after { box-sizing: border-box; }
+
+.al-card {
+  width: 100%; max-width: 420px; padding: 40px 34px 30px; text-align: center;
+  background: var(--al-card); border: 1px solid var(--al-line);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.al-icon {
+  width: 52px; height: 52px; margin: 0 auto 16px; display: grid; place-items: center;
+  border: 1px solid var(--al-line); border-radius: 50%; color: var(--al-gold);
+}
+.al-brand { margin: 0 0 6px; font-family: Georgia, serif; font-size: 15px; letter-spacing: 2px; color: var(--al-gold); }
+.al-card h1 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 28px; font-weight: 500; }
+.al-muted { margin: 0 0 28px; color: var(--al-muted); font-size: 14px; }
+
+.al-form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
+.al-form label { display: flex; flex-direction: column; gap: 7px; color: var(--al-muted); font-size: 12px; letter-spacing: 0.5px; }
+.al-form input {
+  width: 100%; padding: 13px 14px; background: var(--al-input-bg); color: var(--al-ink);
+  border: 1px solid var(--al-input-line); border-radius: 2px; font: inherit; font-size: 14px;
+  transition: border-color 0.2s;
+}
+.al-form input:focus { outline: none; border-color: var(--al-gold); }
+.al-form input[aria-invalid="true"] { border-color: var(--al-danger); }
+
+.al-password { position: relative; }
+.al-password input { padding-right: 46px; }
+.al-eye {
+  position: absolute; top: 50%; right: 6px; transform: translateY(-50%); width: 34px; height: 34px;
+  display: grid; place-items: center; background: transparent; border: none; border-radius: 50%;
+  color: var(--al-muted); cursor: pointer; transition: color 0.2s;
+}
+.al-eye:hover { color: var(--al-ink); }
+.al-eye:focus-visible, .al-submit:focus-visible, .al-back:focus-visible { outline: 2px solid var(--al-gold); outline-offset: 2px; }
+
+.al-error { min-height: 18px; margin: -4px 0 0; color: var(--al-danger); font-size: 13px; }
+
+.al-submit {
+  padding: 14px 18px; background: var(--al-gold); border: 1px solid var(--al-gold); border-radius: 3px;
+  color: #fff; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer;
+  transition: all 0.25s ease;
+}
+.al-submit:hover:not(:disabled) { background: var(--al-gold-hover); border-color: var(--al-gold-hover); }
+.al-submit:disabled { opacity: 0.7; cursor: wait; }
+
+.al-back { display: inline-block; margin-top: 22px; color: var(--al-muted); font-size: 13px; transition: color 0.2s; }
+.al-back:hover { color: var(--al-gold); }
+
+@media (max-width: 480px) {
+  .al-page { padding: 14px; }
+  .al-card { padding: 30px 20px 24px; }
+  .al-card h1 { font-size: 24px; }
+}
