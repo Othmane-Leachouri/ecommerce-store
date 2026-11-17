@@ -5,6 +5,7 @@
 ÉLORA PARFUMS is a modern and elegant perfume e-commerce website designed to provide a simple and smooth online shopping experience.
 
 Customers can explore fragrances, add products to their shopping cart, manage quantities, and place orders directly through WhatsApp. The application uses Supabase to store products and orders securely.
+<img width="755" height="440" alt="image" src="https://github.com/user-attachments/assets/cb5c2a12-5298-44d0-9473-5b4b255e5ad7" />
 
 ##  Features
 
